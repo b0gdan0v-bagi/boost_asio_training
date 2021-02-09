@@ -71,22 +71,23 @@ namespace olc
 
 			}
 
-			template <typename T>
-			class connection;
 
-			template <typename T>
-			struct owned_message
+
+		};
+		template <typename T>
+		class connection;
+
+		template <typename T>
+		struct owned_message
+		{
+			message<T> msg;
+			std::shared_ptr<connection<T>> remote = nullptr;
+
+			friend std::ostream& operator << (std::ostream& os, const message<T>& msg)
 			{
-				message<T> msg;
-				std::shared_ptr<connection<T>> remote = nullptr;
-
-				friend std::ostream& operator << (std::ostream& os, const message<T>& msg)
-				{
-					os << msg.msg;
-					return os;
-				}
-
-			};
+				os << msg.msg;
+				return os;
+			}
 
 		};
 	}
