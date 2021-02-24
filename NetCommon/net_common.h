@@ -13,10 +13,9 @@
 
 #ifdef _WIN32
 #define _WIN32_WINNT 0x0A00
-#endif // _WIN32
+#endif
 
-#include "boost/asio.hpp"
-#include <boost/asio/error.hpp>
-#include <boost/system/error_code.hpp>
-#include "boost/asio/ts/buffer.hpp"
-#include "boost/asio/ts/internet.hpp"
+#define ASIO_STANDALONE
+#include <asio.hpp>
+#include <asio/ts/buffer.hpp>
+#include <asio/ts/internet.hpp>
